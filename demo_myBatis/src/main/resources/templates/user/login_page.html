@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+</head>
+<body>
+<body>
+    <div class="container">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+
+                <form method="post" th:action="@{/user/login}" style="padding-top: 20px;">
+                    <input type="text" id="login" class="fadeIn second" name="username" placeholder="아이디를 입력하세요"/>
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="비밀번호를 입력하세요"/>
+                    <input style="margin-bottom:0px" type="submit" class="fadeIn fourth" value="Log In" />
+                </form>
+
+                <div id="formFooter">
+                    <a class="underlineHover" href="/user/sign_up">회원가입 하러가기</a><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+</html>
