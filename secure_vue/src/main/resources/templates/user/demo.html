@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="EUC-KR">
+<title>DEMO</title>
+</head>
+<body>
+<table>
+	<thead>
+    <tr>
+         <th>ID</th>
+         <th>PW</th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr th:each="user : ${userList}">
+         <td th:text="${user.id}"></td>
+         <td th:text="${user.pw}"></td>
+     </tr>
+     </tbody>
+</table>
+</body>
+</html>

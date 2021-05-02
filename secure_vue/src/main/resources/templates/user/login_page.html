@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<body>
+    <div id="app" class="container">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+				<input type="text" id="userid" v-model="userid" class="fadeIn second" name="username" placeholder="아이디를 입력하세요"/>
+                <input type="password" id="password" v-model="password" class="fadeIn third" name="password" placeholder="비밀번호를 입력하세요"/>
+                <button type="button" @click="login">로그인</button>
+                
+                <div id="formFooter">
+                    <a class="underlineHover" href="/user/sign_up">회원가입 하러가기</a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+		new Vue({
+			el: '#app',
+			data: {
+				token: '',
+				userid: '',
+				password: ''
+			},
+			methods: {
+				login() {
+					axios.post('/user/login', null, {
+						params: {
+							username: this.userid,
+							password: this.password
+						}
+					}).then(response => {
+						console.log('response: ', response);
+					}).catch(error => {
+						console.log('error: ', error.response + ' ' + this.token);
+					});
+				}
+			}
+		});
+	</script>
+</body>
+</body>
+</html>
