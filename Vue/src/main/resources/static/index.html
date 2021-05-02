@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>INDEX</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<h1>Spring Tweets!</h1>
+		<ul>
+			<li>{{msg}}</li>
+		</ul>
+	</div>
+	
+	<script>
+		const apiURL = "http://localhost:8080/api";
+		new Vue({
+			el: '#app',
+			data() {
+    			return {
+      				msg: ''
+    			}
+  			},
+			mounted() {
+				fetch(apiURL)
+				.then((response) => response.text())
+				.then((data) => {
+					this.msg = data;
+				})
+			}
+		});
+	</script>
+
+</body>
+</html>
